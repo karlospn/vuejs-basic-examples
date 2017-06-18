@@ -1,0 +1,27 @@
+<html>
+    <head>
+       <style>
+           .headers{
+                margin: 10;
+                font-family: 'Verdana';
+            }
+            
+            .accent-color {
+                color: red;
+            }
+
+       </style>
+        <title>Growler</title>
+    </head>
+    <body>
+        <div id="growler">
+            <h2 v-once v-bind:class="{
+                'headers': true,
+                'accent-color': true
+            }">{{appName}}</h2>
+            <img v-bind:src="appLogo" alt="Growler" style="height: 36px;"/>
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script type="text/javascript" src="./growler-vue.js"></script>
+    </body>
+</html>
