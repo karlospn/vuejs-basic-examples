@@ -20,8 +20,54 @@
                 'accent-color': true
             }">{{appName}}</h2>
             <img v-bind:src="appLogo" alt="Growler" style="height: 36px;"/>
+            <br/>
+            <input type="text" v-model.trim="inputQuery" placeholder="Searching... (input event)"/>
+            <br/>
+            <div>
+                Searching for {{inputQuery}}
+            </div>
+            </br>
+            <input type="text" v-model.lazy="changeQuery" placeholder="Searching... (change event)"/>
+            <br/>
+            <div>
+                Searching for {{changeQuery}}
+            </div>
+            <br/>
+            <div>
+                <label>
+                    <input type="checkbox" value="ValueA" v-model="searchIndexes"/> ValueA
+                </label>
+                <br/>
+                <label>
+                    <input type="checkbox" value="ValueB" v-model="searchIndexes"/> ValueB
+                </label>
+                <br/>
+                <small>Selected : {{searchIndexes}}</small>
+            </div>
+            <br/>
+            <div>
+                <label>
+                    <input type="radio" value="ValueA" v-model="searchIndex"/> ValueA
+                </label>
+                <br/>
+                <label>
+                    <input type="radio" value="ValueB" v-model="searchIndex"/> ValueB
+                </label>
+                <br/>
+                <small>Selected : {{searchIndex}}</small>
+            </div>
+            <br/>
+            <div>
+                <select v-model="selectedSearchIndex">
+                    <option value="ValueA">ValueA</option>
+                    <option value="ValueB">ValueB</option>
+                </select>
+                <br/>
+                <small>Selected : {{selectedSearchIndex}}</small>
+            </div>
+
         </div>
         <script src="https://unpkg.com/vue"></script>
         <script type="text/javascript" src="./growler-vue.js"></script>
     </body>
-</html>
+</html> 
