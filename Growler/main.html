@@ -65,6 +65,36 @@
                 <br/>
                 <small>Selected : {{selectedSearchIndex}}</small>
             </div>
+            <button v-on:click="executeSearch('token', $event)">Search</button>
+            <br/>
+            <div v-on:click.capture="grandparentClick">
+                <div v-on:click.capture="parentClick">
+                    <button v-on:click.capture="childClick">Capture down!</button>
+                </div>
+            </div>
+            <br/>
+            <div v-on:click="grandparentClick">
+                <div v-on:click="parentClick">
+                    <button v-on:click="childClick">Bubble up!</button>
+                </div>
+            </div>
+            <br/>
+            <div v-on:click="grandparentClick">
+                <div v-on:click.stop="parentClick">
+                    <button v-on:click="childClick">Stop bubbling up!</button>
+                </div>
+            </div>
+            <br/>
+            <input type="text" v-on:keyup="evaluateKey" v-on:keyup.enter="executeSearch('keyup', $event)" v-model="keypressModel" placeholder="Evaluate key events"/>
+            <input type="text" v-on:keydown.f1="evaluateCustomKeyEvent" placeholder="Evaluate custom key events"  v-on:contextmenu.prevent="MouseLeftClick"/>
+            <input type="text" v-on:keyup.ctrl.enter="evaluateKey" placeholder="Control+Enter key press event"  v-on:contextmenu.prevent="MouseLeftClick"/>
+
+            <br/>
+            <br/>
+            <div @mousedown.left="MouseLeftClick">
+                mouseDown 
+            </div>
+
 
         </div>
         <script src="https://unpkg.com/vue"></script>
